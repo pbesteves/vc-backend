@@ -41,6 +41,8 @@
     "@types/jest": "^24.0.18",
     "@types/node": "^12.7.5",
     "@types/supertest": "^2.0.8",
+    "commitizen": "4.0.3",
+    "cz-conventional-changelog": "3.0.2",
     "husky": "^4.0.0",
     "jest": "^24.9.0",
     "prettier": "^1.18.2",
@@ -54,8 +56,9 @@
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }  
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+    }
   },
   "jest": {
     "moduleFileExtensions": [
@@ -70,5 +73,10 @@
     },
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
